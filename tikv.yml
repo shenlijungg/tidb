@@ -1,0 +1,35 @@
+
+global:
+  # log level: trace, debug, info, warn, error, off.
+   log-level: "debug"
+
+readpool:
+  storage:
+  coprocessor:
+
+
+server:
+   grpc-concurrency: 8
+   grpc-raft-conn-num: 24
+
+
+storage:
+pd:
+metric:
+coprocessor:
+rocksdb:
+   compaction-readahead-size: "2MB"
+  defaultcf:
+     compression-per-level: ["lz4", "lz4", "lz4", "lz4", "lz4", "zstd", "zstd"]
+  writecf:
+     block-cache-size: "2G"
+  lockcf:
+
+raftdb:
+  defaultcf:
+     block-cache-size: "512MB"
+
+
+security:
+import:
+
